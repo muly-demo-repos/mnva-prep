@@ -11,14 +11,35 @@ https://docs.amplication.com/how-to/custom-code
   */
 import { InputType, Field } from "@nestjs/graphql";
 import { ApiProperty } from "@nestjs/swagger";
-import { EventListRelationFilter } from "../../event/base/EventListRelationFilter";
-import { ValidateNested, IsOptional } from "class-validator";
-import { Type } from "class-transformer";
 import { StringFilter } from "../../util/StringFilter";
-import { StringNullableFilter } from "../../util/StringNullableFilter";
+import { Type } from "class-transformer";
+import { IsOptional, ValidateNested } from "class-validator";
+import { EventListRelationFilter } from "../../event/base/EventListRelationFilter";
 
 @InputType()
 class DeviceWhereInput {
+  @ApiProperty({
+    required: false,
+    type: StringFilter,
+  })
+  @Type(() => StringFilter)
+  @IsOptional()
+  @Field(() => StringFilter, {
+    nullable: true,
+  })
+  deviceId?: StringFilter;
+
+  @ApiProperty({
+    required: false,
+    type: StringFilter,
+  })
+  @Type(() => StringFilter)
+  @IsOptional()
+  @Field(() => StringFilter, {
+    nullable: true,
+  })
+  deviceName?: StringFilter;
+
   @ApiProperty({
     required: false,
     type: () => EventListRelationFilter,
@@ -41,17 +62,6 @@ class DeviceWhereInput {
     nullable: true,
   })
   id?: StringFilter;
-
-  @ApiProperty({
-    required: false,
-    type: StringNullableFilter,
-  })
-  @Type(() => StringNullableFilter)
-  @IsOptional()
-  @Field(() => StringNullableFilter, {
-    nullable: true,
-  })
-  name?: StringNullableFilter;
 }
 
 export { DeviceWhereInput as DeviceWhereInput };

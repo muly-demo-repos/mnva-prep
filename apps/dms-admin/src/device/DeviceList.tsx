@@ -13,8 +13,9 @@ export const DeviceList = (props: ListProps): React.ReactElement => {
     >
       <Datagrid rowClick="show">
         <DateField source="createdAt" label="Created At" />
+        <TextField label="Device Id" source="deviceId" />
+        <TextField label="Device Name" source="deviceName" />
         <TextField label="ID" source="id" />
-        <TextField label="Name" source="name" />
         <DateField source="updatedAt" label="Updated At" />
       </Datagrid>
     </List>
