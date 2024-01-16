@@ -28,7 +28,7 @@ class SensorEventUpdateInput {
   @Field(() => String, {
     nullable: true,
   })
-  deviceId?: string | null;
+  deviceId?: string;
 
   @ApiProperty({
     required: false,
@@ -49,7 +49,7 @@ class SensorEventUpdateInput {
   @Field(() => String, {
     nullable: true,
   })
-  eventType?: string | null;
+  eventType?: string;
 
   @ApiProperty({
     required: false,
@@ -60,7 +60,7 @@ class SensorEventUpdateInput {
   @Field(() => Date, {
     nullable: true,
   })
-  timestamp?: Date | null;
+  timestamp?: Date;
 }
 
 export { SensorEventUpdateInput as SensorEventUpdateInput };

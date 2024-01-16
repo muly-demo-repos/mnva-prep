@@ -11,7 +11,7 @@ https://docs.amplication.com/how-to/custom-code
   */
 import { InputType, Field } from "@nestjs/graphql";
 import { ApiProperty } from "@nestjs/swagger";
-import { IsString, IsOptional, IsDate } from "class-validator";
+import { IsString, IsDate } from "class-validator";
 import { IsJSONValue } from "../../validators";
 import { GraphQLJSON } from "graphql-type-json";
 import { InputJsonValue } from "../../types";
@@ -20,47 +20,35 @@ import { Type } from "class-transformer";
 @InputType()
 class SensorEventCreateInput {
   @ApiProperty({
-    required: false,
+    required: true,
     type: String,
   })
   @IsString()
-  @IsOptional()
-  @Field(() => String, {
-    nullable: true,
-  })
-  deviceId?: string | null;
+  @Field(() => String)
+  deviceId!: string;
 
   @ApiProperty({
-    required: false,
+    required: true,
   })
   @IsJSONValue()
-  @IsOptional()
-  @Field(() => GraphQLJSON, {
-    nullable: true,
-  })
-  eventData?: InputJsonValue;
+  @Field(() => GraphQLJSON)
+  eventData!: InputJsonValue;
 
   @ApiProperty({
-    required: false,
+    required: true,
     type: String,
   })
   @IsString()
-  @IsOptional()
-  @Field(() => String, {
-    nullable: true,
-  })
-  eventType?: string | null;
+  @Field(() => String)
+  eventType!: string;
 
   @ApiProperty({
-    required: false,
+    required: true,
   })
   @IsDate()
   @Type(() => Date)
-  @IsOptional()
-  @Field(() => Date, {
-    nullable: true,
-  })
-  timestamp?: Date | null;
+  @Field(() => Date)
+  timestamp!: Date;
 }
 
 export { SensorEventCreateInput as SensorEventCreateInput };
