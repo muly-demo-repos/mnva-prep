@@ -11,25 +11,24 @@ https://docs.amplication.com/how-to/custom-code
   */
 import { InputType, Field } from "@nestjs/graphql";
 import { ApiProperty } from "@nestjs/swagger";
-import { StringNullableFilter } from "../../util/StringNullableFilter";
+import { StringFilter } from "../../util/StringFilter";
 import { Type } from "class-transformer";
 import { IsOptional } from "class-validator";
 import { JsonFilter } from "../../util/JsonFilter";
-import { StringFilter } from "../../util/StringFilter";
-import { DateTimeNullableFilter } from "../../util/DateTimeNullableFilter";
+import { DateTimeFilter } from "../../util/DateTimeFilter";
 
 @InputType()
 class SensorEventWhereInput {
   @ApiProperty({
     required: false,
-    type: StringNullableFilter,
+    type: StringFilter,
   })
-  @Type(() => StringNullableFilter)
+  @Type(() => StringFilter)
   @IsOptional()
-  @Field(() => StringNullableFilter, {
+  @Field(() => StringFilter, {
     nullable: true,
   })
-  deviceId?: StringNullableFilter;
+  deviceId?: StringFilter;
 
   @ApiProperty({
     required: false,
@@ -44,14 +43,14 @@ class SensorEventWhereInput {
 
   @ApiProperty({
     required: false,
-    type: StringNullableFilter,
+    type: StringFilter,
   })
-  @Type(() => StringNullableFilter)
+  @Type(() => StringFilter)
   @IsOptional()
-  @Field(() => StringNullableFilter, {
+  @Field(() => StringFilter, {
     nullable: true,
   })
-  eventType?: StringNullableFilter;
+  eventType?: StringFilter;
 
   @ApiProperty({
     required: false,
@@ -66,14 +65,14 @@ class SensorEventWhereInput {
 
   @ApiProperty({
     required: false,
-    type: DateTimeNullableFilter,
+    type: DateTimeFilter,
   })
-  @Type(() => DateTimeNullableFilter)
+  @Type(() => DateTimeFilter)
   @IsOptional()
-  @Field(() => DateTimeNullableFilter, {
+  @Field(() => DateTimeFilter, {
     nullable: true,
   })
-  timestamp?: DateTimeNullableFilter;
+  timestamp?: DateTimeFilter;
 }
 
 export { SensorEventWhereInput as SensorEventWhereInput };

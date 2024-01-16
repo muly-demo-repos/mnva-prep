@@ -8,11 +8,11 @@ generator client {
 }
 
 model SensorEvent {
-  createdAt DateTime  @default(now())
-  deviceId  String?
-  eventData Json?
-  eventType String?
-  id        String    @id @default(cuid())
-  timestamp DateTime?
-  updatedAt DateTime  @updatedAt
+  createdAt DateTime @default(now())
+  deviceId  String
+  eventData Json
+  eventType String
+  id        String   @id @default(cuid())
+  timestamp DateTime
+  updatedAt DateTime @updatedAt
 }

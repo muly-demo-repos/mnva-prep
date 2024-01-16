@@ -17,6 +17,7 @@ import { Request } from "express";
 import { plainToClass } from "class-transformer";
 import { ApiNestedQuery } from "../../decorators/api-nested-query.decorator";
 import { SensorEventService } from "../sensorEvent.service";
+import { Public } from "../../decorators/public.decorator";
 import { SensorEventCreateInput } from "./SensorEventCreateInput";
 import { SensorEvent } from "./SensorEvent";
 import { SensorEventFindManyArgs } from "./SensorEventFindManyArgs";
@@ -25,6 +26,7 @@ import { SensorEventUpdateInput } from "./SensorEventUpdateInput";
 
 export class SensorEventControllerBase {
   constructor(protected readonly service: SensorEventService) {}
+  @Public()
   @common.Post()
   @swagger.ApiCreatedResponse({ type: SensorEvent })
   async createSensorEvent(
@@ -44,6 +46,7 @@ export class SensorEventControllerBase {
     });
   }
 
+  @Public()
   @common.Get()
   @swagger.ApiOkResponse({ type: [SensorEvent] })
   @ApiNestedQuery(SensorEventFindManyArgs)
@@ -63,6 +66,7 @@ export class SensorEventControllerBase {
     });
   }
 
+  @Public()
   @common.Get("/:id")
   @swagger.ApiOkResponse({ type: SensorEvent })
   @swagger.ApiNotFoundResponse({ type: errors.NotFoundException })
@@ -89,6 +93,7 @@ export class SensorEventControllerBase {
     return result;
   }
 
+  @Public()
   @common.Patch("/:id")
   @swagger.ApiOkResponse({ type: SensorEvent })
   @swagger.ApiNotFoundResponse({ type: errors.NotFoundException })
@@ -120,6 +125,7 @@ export class SensorEventControllerBase {
     }
   }
 
+  @Public()
   @common.Delete("/:id")
   @swagger.ApiOkResponse({ type: SensorEvent })
   @swagger.ApiNotFoundResponse({ type: errors.NotFoundException })
