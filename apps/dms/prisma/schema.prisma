@@ -17,3 +17,23 @@ model User {
   updatedAt DateTime @updatedAt
   username  String   @unique
 }
+
+model Device {
+  createdAt DateTime @default(now())
+  events    Event[]
+  id        String   @id @default(cuid())
+  name      String?
+  updatedAt DateTime @updatedAt
+}
+
+model Event {
+  createdAt   DateTime @default(now())
+  device      Device   @relation(fields: [deviceId], references: [id])
+  deviceId    String
+  eventType   String
+  humidity    Float?
+  id          String   @id @default(cuid())
+  temperature Float?
+  timestamp   DateTime
+  updatedAt   DateTime @updatedAt
+}
