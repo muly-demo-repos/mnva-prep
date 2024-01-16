@@ -11,12 +11,34 @@ https://docs.amplication.com/how-to/custom-code
   */
 import { InputType, Field } from "@nestjs/graphql";
 import { ApiProperty } from "@nestjs/swagger";
+import { IsString, IsOptional, ValidateNested } from "class-validator";
 import { EventUpdateManyWithoutDevicesInput } from "./EventUpdateManyWithoutDevicesInput";
-import { ValidateNested, IsOptional, IsString } from "class-validator";
 import { Type } from "class-transformer";
 
 @InputType()
 class DeviceUpdateInput {
+  @ApiProperty({
+    required: false,
+    type: String,
+  })
+  @IsString()
+  @IsOptional()
+  @Field(() => String, {
+    nullable: true,
+  })
+  deviceId?: string;
+
+  @ApiProperty({
+    required: false,
+    type: String,
+  })
+  @IsString()
+  @IsOptional()
+  @Field(() => String, {
+    nullable: true,
+  })
+  deviceName?: string;
+
   @ApiProperty({
     required: false,
     type: () => EventUpdateManyWithoutDevicesInput,
@@ -28,17 +50,6 @@ class DeviceUpdateInput {
     nullable: true,
   })
   events?: EventUpdateManyWithoutDevicesInput;
-
-  @ApiProperty({
-    required: false,
-    type: String,
-  })
-  @IsString()
-  @IsOptional()
-  @Field(() => String, {
-    nullable: true,
-  })
-  name?: string | null;
 }
 
 export { DeviceUpdateInput as DeviceUpdateInput };

@@ -1,7 +1,7 @@
 import { Device as TDevice } from "../api/device/Device";
 
-export const DEVICE_TITLE_FIELD = "name";
+export const DEVICE_TITLE_FIELD = "deviceName";
 
 export const DeviceTitle = (record: TDevice): string => {
-  return record.name?.toString() || String(record.id);
+  return record.deviceName?.toString() || String(record.id);
 };

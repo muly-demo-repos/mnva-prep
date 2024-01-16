@@ -4,9 +4,9 @@ import {
   Create,
   SimpleForm,
   CreateProps,
+  TextInput,
   ReferenceArrayInput,
   SelectArrayInput,
-  TextInput,
 } from "react-admin";
 
 import { EventTitle } from "../event/EventTitle";
@@ -15,6 +15,8 @@ export const DeviceCreate = (props: CreateProps): React.ReactElement => {
   return (
     <Create {...props}>
       <SimpleForm>
+        <TextInput label="Device Id" source="deviceId" />
+        <TextInput label="Device Name" source="deviceName" />
         <ReferenceArrayInput
           source="events"
           reference="Event"
@@ -23,7 +25,6 @@ export const DeviceCreate = (props: CreateProps): React.ReactElement => {
         >
           <SelectArrayInput optionText={EventTitle} />
         </ReferenceArrayInput>
-        <TextInput label="Name" source="name" />
       </SimpleForm>
     </Create>
   );

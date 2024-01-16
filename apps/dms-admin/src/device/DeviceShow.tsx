@@ -18,8 +18,9 @@ export const DeviceShow = (props: ShowProps): React.ReactElement => {
     <Show {...props}>
       <SimpleShowLayout>
         <DateField source="createdAt" label="Created At" />
+        <TextField label="Device Id" source="deviceId" />
+        <TextField label="Device Name" source="deviceName" />
         <TextField label="ID" source="id" />
-        <TextField label="Name" source="name" />
         <DateField source="updatedAt" label="Updated At" />
         <ReferenceManyField reference="Event" target="deviceId" label="Events">
           <Datagrid rowClick="show">

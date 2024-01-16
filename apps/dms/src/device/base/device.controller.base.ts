@@ -53,8 +53,9 @@ export class DeviceControllerBase {
       data: data,
       select: {
         createdAt: true,
+        deviceId: true,
+        deviceName: true,
         id: true,
-        name: true,
         updatedAt: true,
       },
     });
@@ -78,8 +79,9 @@ export class DeviceControllerBase {
       ...args,
       select: {
         createdAt: true,
+        deviceId: true,
+        deviceName: true,
         id: true,
-        name: true,
         updatedAt: true,
       },
     });
@@ -104,8 +106,9 @@ export class DeviceControllerBase {
       where: params,
       select: {
         createdAt: true,
+        deviceId: true,
+        deviceName: true,
         id: true,
-        name: true,
         updatedAt: true,
       },
     });
@@ -139,8 +142,9 @@ export class DeviceControllerBase {
         data: data,
         select: {
           createdAt: true,
+          deviceId: true,
+          deviceName: true,
           id: true,
-          name: true,
           updatedAt: true,
         },
       });
@@ -173,8 +177,9 @@ export class DeviceControllerBase {
         where: params,
         select: {
           createdAt: true,
+          deviceId: true,
+          deviceName: true,
           id: true,
-          name: true,
           updatedAt: true,
         },
       });
